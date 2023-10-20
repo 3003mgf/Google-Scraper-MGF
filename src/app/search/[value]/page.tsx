@@ -21,6 +21,8 @@ const SearchPage = async({searchParams, params: { value }}:Props) => {
     redirect("/");
   };
 
+  console.log(searchParams);
+  
 
   // Call API
   const response = await fetch(getBaseUrl("/api/search"), {

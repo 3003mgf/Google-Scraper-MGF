@@ -6,6 +6,8 @@ export async function POST(request: Request){
   const { search, ...params } = await request.json();
   const searchParams: SearchParams = params;
 
+  console.log(searchParams);
+  
 
   const filters: any = [];
 
@@ -39,7 +41,8 @@ export async function POST(request: Request){
   })
 
 
-  const data = await response.json();  
+  const data = await response.json(); 
+   
   
   const pageResults: PageResults[] = data.results;
 

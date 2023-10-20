@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageResults } from "../../typings";
+import { InformationCircleIcon, LinkIcon } from "@heroicons/react/24/solid";
 
 type Props = {
   results: PageResults[];
@@ -79,9 +80,16 @@ const ResultsList = ({results, term}:Props) => {
                   <p className="font-LVRegular">{item.title}</p>
                 </div>
 
-                <div className="px-5 py-3 bg-[#1B66D2] space-y-2 rounded-b-2xl text-white">
+                <div className="px-5 py-3 bg-[#1B66D2] space-y-2 rounded-b-2xl text-white relative">
                   <p className="text-xs tracking-wide">{item.price_str} {item.currency}</p>
                   <p className="font-bold text-xs">{item.merchant.name}</p>
+                  {
+                    item.url.includes("url?url=") && (
+                      <div className="absolute top-1/2 -translate-y-1/2 right-3">
+                        <LinkIcon className="h-4 w-4 text-white"/>
+                      </div>
+                    )
+                  }
                 </div>
               </Link>
             ))}

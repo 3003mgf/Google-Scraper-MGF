@@ -40,8 +40,9 @@ const Header = () => {
     if(minPrice) params.set("minPrice", minPrice.toString());
     if(maxPrice) params.set("maxPrice", maxPrice.toString());
     
+    
     router.push(`/search/${input}?${params.toString()}`);
-  
+    setPending(false);
   };
 
   const SORT_OPTIONS = {
@@ -83,11 +84,11 @@ const Header = () => {
             </div>
             <button hidden type="submit">Search</button>
             {/* Search Button */}
-            <SearchButton pending={pending}/>
+            <SearchButton pendingS={pending}/>
           </div>
 
           {/* Sorters */}
-          <div className="grid grid-cols-2 items-center gap-2 p-4 mx-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 items-center gap-2 p-4 mx-8 lg:grid-cols-4 font-LVRegular">
             <SearchSelect 
             onValueChange={(value)=> setPages(value)}
             className="min-w-4" placeholder="# of pages">
@@ -132,8 +133,8 @@ const Header = () => {
         </form>
       </div>
 
-      <div className="hidden lg:flex flex-1 justify-end">
-        <Avatar name="Nacho Gramajo" round size="35" color="#C81B56"/>
+      <div className="hidden lg:flex flex-1 justify-end cursor-default">
+        <Avatar name="Nacho Gramajo" round size="35" color="#C81B56" title="Website made by MGF"/>
       </div>
     </header>
    );

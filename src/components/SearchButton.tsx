@@ -1,17 +1,16 @@
-'use client'
-
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { TailSpin } from "react-loader-spinner";
 
 type Props = {
-  pending: boolean
+  pendingS: boolean
 };
 
-const SearchButton = ({pending}:Props) => {
+const SearchButton = ({pendingS}:Props) => {
+
 
   return ( 
     <button className="flex items-center justify-center bg-blue-500 w-[3.2rem] h-[3.2rem] hover:bg-blue-700 transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50 rounded-full">
-      {pending ? (
+      {pendingS ? (
         <TailSpin
           height="16"
           width="16"

@@ -7,11 +7,12 @@ export type SearchParams = {
 };
 
 
+
 type PageResults = {
   content: Content,
   created_at: string;
   updated_at: string;
-  page: Number;
+  page: number;
   url: string;
   job_id: string;
   status_code: number;
@@ -60,3 +61,72 @@ type Organic = {
   price_str:string;
   pos_overall:number;
 };
+
+
+export type ProductData = {
+  content: ProductContent;
+  created_at: string;
+  updated_at: string;
+  page: number;
+  url: string;
+  job_id: string;
+  status_code: number;
+  parser_type: string;
+};
+
+
+type ProductContent = {
+  url: string;
+  title: string;
+  description: string;
+  images: {
+    full_size: string[];
+    thumbnail: string[]
+  };
+  highlights: string[];
+  
+  reviews:{
+    rating: number;
+    top_review: {
+      text: string;
+      title: string;
+      rating: number;
+      author: string;
+      source: string;
+    };
+    rating_stars: number;
+    reviews_count: number;
+    reviews_by_stars: {
+      [starRating]: {
+        url: string;
+        reviews_count: number;
+      };
+    };
+  };
+  pricing: {
+    online: [
+      {
+        price: number;
+        seller: string;
+        details: string;
+        currency: string;
+        condition: string;
+        price_tax: number;
+        price_total: number;
+        seller_link: string;
+        price_shipping: number;
+      }
+    ];
+  };
+  specifications:[
+    {
+      items:[
+        {
+          title: string;
+          value: string;
+        }
+      ];
+      section_title: string;
+    }
+  ];
+}
